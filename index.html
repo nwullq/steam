@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Два спойлера и списки</title>
+    <style>
+        body {
+            background: #2e2e2e;
+            color: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .links {
+            width: 45%;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #4da3ff;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background: #4da3ff;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+        }
+
+            button:hover {
+                background: #367acc;
+            }
+
+        .spoiler-text {
+            background: #444;
+            padding: 2px;
+            margin-top: 5px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            display: none;
+            width: 100%;
+        }
+
+        .video {
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="links">
+            <h1>Cybershoke</h1>
+            <ul>
+                <li><a href="https://cybershoke.net/">Cybershoke</a></li>
+                <li><a href="https://cybershoke.net/cs2/servers/dm">DM</a></li>
+                <li><a href="https://cybershoke.net/cs2/servers/duels">Duels</a></li>
+                <li><a href="https://cybershoke.net/cs2/servers/bhop">Bhop</a></li>
+            </ul>
+            <button id="spoilerToggle1">Показать спойлер</button>
+            <div class="spoiler-text" id="spoilerContent1">
+                Duels US connect 139.60.161.109:27056
+            </div>
+        </div>
+
+        <div class="links">
+            <h1>Dotle</h1>
+            <ul>
+                <li><a href="https://www.google.com/">Google</a></li>
+                <li><a href="https://csstats.gg/">CSStats</a></li>
+                <li><a href="https://steamcommunity.com/">Steam Community</a></li>
+                <li><a href="https://fearproject.ru/">FearProject</a></li>
+            </ul>
+            <button id="spoilerToggle2">Показать спойлер</button>
+            <div class="spoiler-text" id="spoilerContent2">
+                Sobaka
+            </div>
+        </div>
+    </div>
+
+    <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/lg1pga4lvVg"
+                title="Всё я сгорел | Electronic" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function setupSpoiler(buttonId, contentId) {
+            const btn = document.getElementById(buttonId);
+            const content = document.getElementById(contentId);
+            btn.onclick = () => {
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    btn.textContent = 'Показать спойлер';
+                } else {
+                    content.style.display = 'block';
+                    btn.textContent = 'Скрыть спойлер';
+                }
+            };
+        }
+        setupSpoiler('spoilerToggle1', 'spoilerContent1');
+        setupSpoiler('spoilerToggle2', 'spoilerContent2');
+    </script>
+
+</body>
+</html>
